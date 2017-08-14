@@ -144,13 +144,13 @@ abstract class AbstractProvider implements ProviderContract
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function redirect()
+    public function redirect( $state = null )
     {
-        $state = null;
 
-        if ($this->usesState()) {
-            $this->request->session()->put('state', $state = $this->getState());
-        }
+
+//        if ($this->usesState() ) {
+//            $this->request->session()->put('state', $state = $this->getState());
+//        }
 
         return new RedirectResponse($this->getAuthUrl($state));
     }
@@ -205,9 +205,9 @@ abstract class AbstractProvider implements ProviderContract
      */
     public function user()
     {
-        if ($this->hasInvalidState()) {
-            throw new InvalidStateException;
-        }
+//        if ($this->hasInvalidState()) {
+//            throw new InvalidStateException;
+//        }
 
         $response = $this->getAccessTokenResponse($this->getCode());
 
