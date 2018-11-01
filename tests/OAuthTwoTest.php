@@ -4,12 +4,11 @@ namespace Tests;
 
 use Mockery as m;
 use Illuminate\Http\Request;
-use GuzzleHttp\ClientInterface;
-use PHPUnit_Framework_TestCase;
-use Tests\Fixtures\FacebookTestProviderStub;
-use Tests\Fixtures\OAuthTwoTestProviderStub;
+use Laravel\Socialite\Two\User;
+use PHPUnit\Framework\TestCase;
+use Laravel\Socialite\Two\AbstractProvider;
 
-class OAuthTwoTest extends PHPUnit_Framework_TestCase
+class OAuthTwoTest extends TestCase
 {
     public function tearDown()
     {
